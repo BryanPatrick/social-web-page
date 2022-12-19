@@ -1,53 +1,29 @@
-const state = {
-    products: {
-        product1: {
-            image: "../assets/frasco.webp",
-            name: "HUGO BOSS",
-            stars: "*****",
-            discount: 300.99,
-            price: 230.99,
-            installment: 100.99,
-            shipping: true,
-            description: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Aut optio sapiente ratione provident ea quo inventore,
-            ex recusandae perspiciatis`
-        },
-        product2: {
-            image: "../assets/frasco.webp",
-            name: "HUGO BOSS",
-            stars: "*****",
-            discount: 300.99,
-            price: 230.99,
-            installment: 100.99,
-            shipping: true,
-            description: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Aut optio sapiente ratione provident ea quo inventore,
-            ex recusandae perspiciatis`
-        },
-        product3: {
-            image: "../assets/frasco.webp",
-            name: "HUGO BOSS",
-            stars: "*****",
-            discount: 300.99,
-            price: 230.99,
-            installment: 100.99,
-            shipping: true,
-            description: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Aut optio sapiente ratione provident ea quo inventore,
-            ex recusandae perspiciatis`
-        },
-    }
+export const state = () => ({
+  products: [],
+});
+
+export const getters = {
+  cardItems(state) {
+    return state.products;
+  },
 };
 
-const getters = {};
-
-const mutations = {
-    
+export const mutations = {
+  PUXAR_JSON: (state, payload) => {
+    state.products = payload;
+  },
 };
 
-const actions = {};
+export const actions = {
+  puxarJson: ({ commit }) => {
+    fetch("http://127.0.0.1:5500/testando.json")
+      .then((r) => r.json())
+      .then((r) => commit("PUXAR_JSON", r));
+  },
+};
 
 export default {
+  namespaced: true,
   state,
   getters,
   mutations,

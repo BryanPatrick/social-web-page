@@ -1,9 +1,12 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-import ProductsStore from "./ProductsStore.js"
+import Vue from "vue";
+import Vuex from "vuex";
 
-Vue.use(Vuex)
+Vue.use(Vuex);
+
+import productsStore from "./productsStore.js";
 
 export default new Vuex.Store({
-  ProductsStore,
-})
+  modules: {
+    productsStore,
+  },
+});
