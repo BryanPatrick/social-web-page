@@ -6,11 +6,11 @@
 </template>
 
 <script>
-import HeaderMenu from './components/topbar/HeaderMenu.vue';
+import HeaderMenu from "./components/topbar/HeaderMenu.vue";
 
 export default {
   components: { HeaderMenu },
-  name: 'App',
+  name: "App",
 
   data: () => ({
     //
@@ -23,6 +23,7 @@ export default {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
 }
 #app {
   padding: 0 5%;

@@ -2,7 +2,10 @@
   <div>
     <div class="card" v-for="(item, index) in cardItems" :key="index">
       <div class="card-img">
-        <img :src="item.image" alt="imagem de um frasco de perfume" />
+        <img
+          src="../../assets/frasco.webp"
+          alt="imagem de um frasco de perfume"
+        />
         <span class="infoAdd">{{ item.detail }}</span>
       </div>
       <h3 class="brand my">{{ item.name }}</h3>
@@ -55,7 +58,7 @@ export default {
   border: 1px solid lightgrey;
   overflow: hidden;
   border-radius: 5px;
-  margin: 4px;
+  margin: 8px;
 }
 img {
   width: 100%;
