@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <HeaderMenu />
-    <router-view />
+    <router-view class="pd" />
   </div>
 </template>
 
@@ -11,7 +11,6 @@ import HeaderMenu from "./components/topbar/HeaderMenu.vue";
 export default {
   components: { HeaderMenu },
   name: "App",
-
   data: () => ({
     //
   }),
@@ -24,8 +23,9 @@ export default {
   padding: 0;
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
+  text-decoration: none;
 }
-#app {
+.pd {
   padding: 0 5%;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <v-carousel hide-delimiters cycle height="25rem">
+  <v-carousel hide-delimiters height="25rem">
     <v-carousel-item
       v-for="(item, i) in items"
       :key="i"
@@ -13,25 +13,25 @@ export default {
   name: "CarouselHome",
   data: () => ({
     items: [
-        {
-        src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
-        },
-        {
-        src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
-        },
-        {
-        src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
-        },
-        {
-        src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
-        },
-    ]
+      {
+        src: "https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg",
+      },
+      {
+        src: "https://cdn.vuetifyjs.com/images/carousel/sky.jpg",
+      },
+      {
+        src: "https://cdn.vuetifyjs.com/images/carousel/bird.jpg",
+      },
+      {
+        src: "https://cdn.vuetifyjs.com/images/carousel/planet.jpg",
+      },
+    ],
   }),
 };
 </script>
 
 <style>
 div .v-window__next {
-    right: 0 !important;
+  right: 0 !important;
 }
 </style>

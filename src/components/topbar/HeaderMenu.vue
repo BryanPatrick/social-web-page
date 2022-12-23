@@ -1,84 +1,135 @@
 <template>
-  <div class="topNav">
-    <nav class="navigationBar1">
-      <div>
-        <span class="brand">SUA MARCA</span>
-      </div>
-      <div>
-        <input type="text" />
-      </div>
-      <div>
-        <span>Help</span>
-        <span>About US</span>
-        <span>Entrar</span>
-        <span>Cart</span>
-      </div>
-    </nav>
-    <nav class="navigationBar2">
-      <div class="primaryMenu" @mouseover="inside">
-        <span>Menu</span>
-        <template v-if="showMenu">
-          <div class="navItems" @mouseover="inside">
-            <span v-for="(item, index) in items" :key="index">
-              <router-link :to="item.to">{{ item.title }}</router-link>
-            </span>
+  <div class="hrContainer">
+    <div class="topNav">
+      <nav class="navigationBar1">
+        <div>
+          <router-link to="/">
+            <span class="brand">YOUR BRAND</span>
+          </router-link>
+        </div>
+        <div>
+          <input type="text" />
+        </div>
+        <div class="_nav">
+          <router-link to="/aboutus">
+            <span>About US</span>
+          </router-link>
+          <router-link to="/help">
+            <v-icon title="Support" medium>mdi-face-agent</v-icon>
+          </router-link>
+          <router-link to="/login">
+            <v-icon title="Login" medium>mdi-account</v-icon>
+          </router-link>
+          <router-link to="/cart">
+            <v-icon title="Cart" medium>mdi-cart-variant</v-icon>
+          </router-link>
+        </div>
+      </nav>
+      <nav class="navigationBar2">
+        <div @mouseleave="out">
+          <div class="mainMenu" @mouseenter="inside">
+            <span>Main menu</span>
           </div>
-        </template>
-      </div>
-    </nav>
+          <MainMenu :open="showMainMenu" />
+        </div>
+        <div class="_menu">
+          <div>
+            <span>Menu 1</span>
+          </div>
+          <div>
+            <span>Menu 2</span>
+          </div>
+          <div>
+            <span>Menu 3</span>
+          </div>
+        </div>
+      </nav>
+    </div>
   </div>
 </template>
 
 <script>
+import MainMenu from "./MainMenu.vue";
+
 export default {
   name: "HeaderMenu",
+  components: {
+    MainMenu,
+  },
   data: () => ({
-    showMenu: false,
-    items: [
-      { title: "Click Me", to: "www.google.com" },
-      { title: "Click Me" },
-      { title: "Click Me" },
-      { title: "Click Me 2" },
-    ],
+    showMainMenu: false,
+    showSecondMenu: false,
   }),
   methods: {
     inside() {
-      this.showMenu = true;
+      this.showMainMenu = true;
     },
     out() {
-      this.showMenu = false;
+      this.showMainMenu = false;
     },
   },
 };
 </script>
 
 <style>
+.topNav {
+  padding: 0 5%;
+}
+.hrContainer {
+  border-bottom: 1px solid lightgrey;
+}
 .navigationBar1 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 50px;
-  border-bottom: 1px solid black;
+  height: 70px;
+  border-bottom: 1px solid lightgrey;
 }
 .navigationBar2 {
   display: flex;
   align-items: center;
-  height: 30px;
-  border-bottom: 1px solid black;
-  position: relative;
+  height: 40px;
 }
-.primaryMenu {
+.mainMenu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 200px;
+  height: 40px;
+  background-color: lightgrey;
+  cursor: pointer;
+}
+.mainMenu span {
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.brand {
+  font-size: 40px;
+  cursor: pointer;
+  color: black;
+}
+._nav span {
+  color: black;
+  cursor: pointer;
+  margin: 0 6px;
+}
+._nav a {
+  margin: 0 20px;
+}
+._menu {
+  display: flex;
+}
+._menu div {
+  width: 150px;
   display: flex;
   justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
-.navItems {
-  position: absolute;
-  width: 100%;
-  padding: 4px;
-  background-color: red;
-  z-index: 10;
-  left: 0;
-  top: 29px;
+._menu span {
+  color: black;
+  width: 100px;
+  text-align: center;
 }
 </style>
